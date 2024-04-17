@@ -1,7 +1,6 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  ViewChild,
   computed,
   signal,
 } from '@angular/core';
@@ -10,21 +9,17 @@ import {
   ApexNoData,
   ApexOptions,
   ChartComponent,
-  NgApexchartsModule,
-} from 'ng-apexcharts';
+} from 'ngx-apexcharts';
 
 @Component({
   selector: 'app-bar',
   standalone: true,
-  imports: [NgApexchartsModule],
+  imports: [ChartComponent],
   templateUrl: './bar.component.html',
   styleUrl: './bar.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BarComponent {
-  @ViewChild('chart', { static: true }) chart?: ChartComponent;
-  //@ViewChild('chart') chart?: ChartComponent;
-
   data = signal<any>([
     {
       name: 'Incoming',
@@ -95,16 +90,6 @@ export class BarComponent {
       noData: this.noDataTemplate,
     };
   });
-
-  // chartOptions = signal<ApexOptions | undefined>({
-  //   chart: {
-  //     type: 'bar',
-  //     height: 400,
-  //     width: '100%',
-  //   },
-  //   series: this.tmp(),
-  //   noData: this.noDataTemplate,
-  // });
 
   series = computed(() => {
     return this.chartOptions()?.series ?? [];
