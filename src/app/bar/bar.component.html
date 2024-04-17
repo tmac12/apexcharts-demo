@@ -1,0 +1,26 @@
+<button (click)="updateData()">Update data</button>
+@if (chartOptions()) {
+
+<apx-chart
+  class="bm-apex-chart"
+  #chart
+  [series]="series()"
+  [labels]="labels()"
+  [chart]="chartSignal()"
+  [dataLabels]="dataLabels()"
+  [markers]="markers()"
+  [fill]="fill()"
+  [yaxis]="yaxis()"
+  [xaxis]="xaxis()"
+  [tooltip]="tooltip()"
+  [noData]="noData()"
+  [plotOptions]="plotOptions()"
+  [autoUpdateSeries]="autoUpdateSeries()"
+  [theme]="theme()"
+  [legend]="legend()"
+  [colors]="colors()"
+  [stroke]="stroke()"
+  [title]="title()"
+>
+</apx-chart>
+}
